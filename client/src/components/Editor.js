@@ -20,9 +20,7 @@ const TOOLBAR_OPTIONS = [
 const Editor = () => {
     const [socket, setSocket] = useState()
     const [quill, setQuill] = useState()
-    const { id: documentId } = useParams()
-    console.log(documentId)
-    
+    const { id: documentId } = useParams()    
 
     useEffect(() => {
         const s = io('http://localhost:3001')
@@ -42,6 +40,18 @@ const Editor = () => {
       socket.emit('get-document', documentId)
 
     }, [socket, quill, documentId])
+
+    useEffect(() => {
+      if(socket == null || quill == null) return
+
+      const interval = setInterval(() => {
+        socket.emit('save-document', quill.getContents())
+      }, 2000)
+
+      return () => {
+        clearInterval(interval)
+      }
+    }, [socket, quill])
 
     useEffect(() => {
       if (socket == null || quill == null) return
