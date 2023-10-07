@@ -66,7 +66,7 @@ const Editor = () => {
 
     useEffect(() => {
       if (socket == null || quill == null) return
-      const handler =  (delta, oldDelta, source) => {
+      const handler =  (delta, source) => {
         if (source !== 'user') return
         socket.emit('send-changes', delta)
       }
