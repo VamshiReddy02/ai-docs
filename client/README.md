@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+## Contribute
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Follow the following instructions to start contributing.
 
-## Available Scripts
+**1.** Fork [this](https://github.com/VamshiReddy02/ai-docs) repository.
 
-In the project directory, you can run:
+**2.** Clone your forked copy of the project.
 
-### `npm start`
+```
+git clone --depth=1 https://github.com/<your-username>/layer5.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**3.** Navigate to the project directory.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+cd ai-docs
+```
 
-### `npm test`
+**4.** Add a reference(remote) to the original repository.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+git remote add upstream https://github.com/VamshiReddy02/ai-docs
+```
 
-### `npm run build`
+**5.** Check the remotes for this repository.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git remote -v
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**6.** Always take a pull from the upstream repository to your master branch to keep it at par with the main project (updated repository).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+git pull upstream master
+```
 
-### `npm run eject`
+**7.** Create a new branch.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+git checkout -b <your_branch_name>
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**8.** Install the dependencies for running the site.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**9.** Make the desired changes.
 
-## Learn More
+**10.** Run the site locally to preview changes.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+nodemon index.js
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**11.** Track your changes.
 
-### Code Splitting
+```
+git add .
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**12.** Commit your changes.
 
-### Analyzing the Bundle Size
+```
+git commit --signoff -m "<commit subject>"
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+or you could go with the shorter format for the same, as shown below.
 
-### Making a Progressive Web App
+```
+git commit -s -m "<commit subject>"
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**13.** While you are working on your branch, other developers may update the `master` branch with their branch. This action means your branch is now out of date with the `master` branch and missing content. So to fetch the new changes, follow along:
 
-### Advanced Configuration
+```
+git checkout master
+git fetch origin master
+git merge upstream/master
+git push origin
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Now you need to merge the `master` branch into your branch. This can be done in the following way:
 
-### Deployment
+```
+git checkout <your_branch_name>
+git merge master
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**14.** Push the committed changes in your feature branch to your remote repo.
 
-### `npm run build` fails to minify
+```
+git push -u origin <your_branch_name>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**15.** Once you’ve committed and pushed all of your changes to GitHub, go to the page for your fork on GitHub, select your development branch, and click the pull request button. Please ensure that you compare your feature branch to the desired branch of the repo you are supposed to make a PR to. If you need to make any adjustments to your pull request, just push the updates to GitHub. Your pull request will automatically track the changes in your development branch and update it
