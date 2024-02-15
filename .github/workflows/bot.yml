@@ -3,14 +3,13 @@ name: self-assign-bot
 on: push
 
 jobs:
-  build:
+  example_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Example TypeScript Action
-        uses: flcdrg/example-ts-action@v1.3
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run example-ts-action
+      uses: flcdrg/example-ts-action@v1.3
+      with:
+        milliseconds: 1000 
+      env:
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
