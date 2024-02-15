@@ -9,8 +9,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: prow-github-actions
-        uses: jpmcb/prow-github-actions@v1.1.3  
+      - name: Example TypeScript Action
+        uses: flcdrg/example-ts-action@v1.3
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
